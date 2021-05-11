@@ -1,0 +1,3 @@
+[submodule "dlrm/dlrm"]
+	path = dlrm/dlrm
+	url = https://github.com/icalciu/dlrm.git
