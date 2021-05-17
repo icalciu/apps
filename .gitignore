@@ -1,0 +1,8 @@
+redis/libevent
+redis/redis
+redis/memtier_benchmark
+redis/output
+redis/memcached*
+
+pyapps/datasets
+pyapps/outputs
