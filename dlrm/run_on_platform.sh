@@ -28,6 +28,39 @@ function method_default() {
     ${APP_ARGS}" FALSE
 }
 
+function method_default_1t() {
+    ${PLATFORM} FALSE ${OUTPUT_PREFIX} "${PARAMS}" \
+    "OMP_NUM_THREADS=1 python3 ./dlrm/dlrm_s_pytorch.py --mini-batch-size=256 \
+        --test-mini-batch-size=16384 --test-num-workers=0 --num-batches=200 \
+        --data-generation=random --arch-mlp-bot=512-512-128 --arch-mlp-top=1024-1024-1024-1 \
+        --arch-sparse-feature-size=128 --arch-embedding-size=1000000-1000000-1000000-1000000-1000000-1000000-1000000-1000000 \
+        --num-indices-per-lookup=100 --arch-interaction-op=dot --numpy-rand-seed=727 \
+        --print-freq=1 --print-time \
+    ${APP_ARGS}" FALSE
+}
+
+function method_default_2t() {
+    ${PLATFORM} FALSE ${OUTPUT_PREFIX} "${PARAMS}" \
+    "OMP_NUM_THREADS=2 python3 ./dlrm/dlrm_s_pytorch.py --mini-batch-size=256 \
+        --test-mini-batch-size=16384 --test-num-workers=0 --num-batches=200 \
+        --data-generation=random --arch-mlp-bot=512-512-128 --arch-mlp-top=1024-1024-1024-1 \
+        --arch-sparse-feature-size=128 --arch-embedding-size=1000000-1000000-1000000-1000000-1000000-1000000-1000000-1000000 \
+        --num-indices-per-lookup=100 --arch-interaction-op=dot --numpy-rand-seed=727 \
+        --print-freq=1 --print-time \
+    ${APP_ARGS}" FALSE
+}
+
+function method_default_4t() {
+    ${PLATFORM} FALSE ${OUTPUT_PREFIX} "${PARAMS}" \
+    "OMP_NUM_THREADS=4 python3 ./dlrm/dlrm_s_pytorch.py --mini-batch-size=256 \
+        --test-mini-batch-size=16384 --test-num-workers=0 --num-batches=200 \
+        --data-generation=random --arch-mlp-bot=512-512-128 --arch-mlp-top=1024-1024-1024-1 \
+        --arch-sparse-feature-size=128 --arch-embedding-size=1000000-1000000-1000000-1000000-1000000-1000000-1000000-1000000 \
+        --num-indices-per-lookup=100 --arch-interaction-op=dot --numpy-rand-seed=727 \
+        --print-freq=1 --print-time \
+    ${APP_ARGS}" FALSE
+}
+
 pushd ${SCRIPT_DIR}
 
     if [ "${PLATFORM}" = "pbmem" ]; then
